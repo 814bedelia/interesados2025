@@ -19,6 +19,8 @@
   --pink:#FF4F8B;      /* artes visuales */
   --orange:#FF7A3D;    /* teatro */
   --green:#3DDC97;     /* danzas */
+  --cyan:#3FC8F0;      /* diseño gráfico */
+  --lilac:#B79CFF;     /* locución */
   --focus:#FFD23F;
 }
 *{box-sizing:border-box}
@@ -51,7 +53,7 @@ h1{color:var(--white); margin:0 0 14px;
 .lead{color:var(--white); margin:0 0 30px; max-width:48ch; font-size:1.125rem}
 h2.sub{color:var(--white); margin:0 0 12px; font:800 1.25rem/1.2 "Archivo",system-ui,sans-serif}
 
-/* Las cuatro carreras, cada una con su color */
+/* Las carreras, cada una con su color */
 .tiles{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:0 0 36px; padding:0; list-style:none}
 .tile{
   width:100%; min-height:112px; display:flex; flex-direction:column; align-items:flex-start; gap:10px;
@@ -66,6 +68,8 @@ h2.sub{color:var(--white); margin:0 0 12px; font:800 1.25rem/1.2 "Archivo",syste
 .tile[data-c="visuales"]{background:var(--pink)}
 .tile[data-c="teatro"]{background:var(--orange)}
 .tile[data-c="danzas"]{background:var(--green)}
+.tile[data-c="diseno"]{background:var(--cyan)}
+.tile[data-c="locucion"]{background:var(--lilac)}
 .tile[aria-pressed="true"]{border-color:var(--white); transform:translateY(-4px); box-shadow:0 4px 0 var(--ink)}
 
 .panel{
@@ -74,7 +78,7 @@ h2.sub{color:var(--white); margin:0 0 12px; font:800 1.25rem/1.2 "Archivo",syste
   outline:3px solid var(--white); outline-offset:6px; display:grid; gap:20px;
 }
 .panel::before{content:""; position:absolute; top:0; left:0; right:0; height:10px;
-  background:linear-gradient(90deg,var(--yellow) 0 25%,var(--pink) 25% 50%,var(--orange) 50% 75%,var(--green) 75% 100%)}
+  background:linear-gradient(90deg,var(--yellow) 0 16.66%,var(--pink) 16.66% 33.33%,var(--orange) 33.33% 50%,var(--green) 50% 66.66%,var(--cyan) 66.66% 83.33%,var(--lilac) 83.33% 100%)}
 .row{display:grid; gap:20px; grid-template-columns:1fr 1fr}
 @media (max-width:520px){.row{grid-template-columns:1fr}}
 label{display:block; font-weight:600; margin-bottom:6px; color:var(--ink)}
@@ -105,7 +109,7 @@ input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--warn)}
 
 .done{position:relative; overflow:hidden; background:var(--white); border-radius:10px; padding:36px 22px 26px; outline:3px solid var(--white); outline-offset:6px}
 .done::before{content:""; position:absolute; top:0; left:0; right:0; height:10px;
-  background:linear-gradient(90deg,var(--yellow) 0 25%,var(--pink) 25% 50%,var(--orange) 50% 75%,var(--green) 75% 100%)}
+  background:linear-gradient(90deg,var(--yellow) 0 16.66%,var(--pink) 16.66% 33.33%,var(--orange) 33.33% 50%,var(--green) 50% 66.66%,var(--cyan) 66.66% 83.33%,var(--lilac) 83.33% 100%)}
 .done h2{margin:0 0 8px; color:var(--blue); font:800 1.7rem/1.15 "Archivo",system-ui,sans-serif; font-stretch:125%; font-variation-settings:"wdth" 125}
 .done p{margin:0 0 10px}
 [hidden]{display:none!important}
@@ -142,6 +146,12 @@ input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--warn)}
       <li><button type="button" class="tile" data-c="danzas" data-carrera="Profesorado de Danzas con orientación en Danzas Folclóricas" aria-pressed="false">
         <svg viewBox="0 0 268 264" aria-hidden="true"><path fill="#14143A" fill-rule="evenodd" d="M61 256C58 255 44 244 41 240C37 236 39 229 46 222C48 219 57 205 57 204C57 203 55 203 53 203C44 203 37 198 32 190C29 184 29 184 21 181C13 179 8 173 6 167C5 162 7 149 9 143C11 137 11 137 9 135C4 128 7 120 18 111C31 100 40 91 41 88C41 84 46 77 50 73L53 71L48 69C42 67 41 64 46 58C49 54 51 49 51 43C51 37 54 31 59 28C62 27 65 24 68 22C77 13 95 13 102 22C109 30 109 54 102 62L100 64L107 64C119 65 128 72 134 84C137 91 139 92 151 94C165 97 164 97 164 93C164 90 164 89 153 84C138 77 136 75 124 47C119 34 119 30 123 26C126 22 127 22 131 22C139 22 139 23 148 39C152 48 157 55 157 56C159 57 172 61 175 61L177 61L174 56C172 52 172 50 172 43C172 36 171 35 169 35C168 34 165 32 163 30C154 22 160 13 173 15C177 16 178 16 179 12C183 7 185 6 193 6C208 8 214 11 215 19C215 23 216 23 220 25C227 27 230 31 230 36C229 41 227 43 219 44C213 44 213 44 212 48C211 51 210 54 208 56C207 59 206 60 207 60C208 60 212 61 216 63C223 66 229 72 239 86C251 104 250 109 230 130L221 140L222 156C224 181 223 178 236 193C242 200 251 210 255 214C266 225 265 227 247 246C239 254 235 255 230 250C227 247 226 244 228 236L230 232L213 215C198 200 196 197 194 192C193 189 192 185 192 184C192 179 190 180 189 186C188 191 188 199 188 223C189 262 191 258 167 258C147 258 146 258 146 250C146 245 148 242 154 239L160 236L157 212C155 184 155 186 161 157C165 137 167 120 164 118C163 118 156 117 147 116C130 115 127 114 120 108C115 103 113 104 111 111L110 116L116 123C127 137 137 152 141 162C142 166 145 172 146 175C151 185 149 194 140 200C136 203 135 203 127 204C122 204 117 205 117 205C115 206 113 235 114 236C114 236 117 237 119 238C127 241 130 244 130 249C130 258 128 258 109 258L93 258L91 255C89 253 89 252 89 242C91 225 88 210 85 211C84 212 68 232 68 233C68 234 69 237 71 240C78 251 71 262 61 256ZM114 247C112 246 108 245 105 245C99 245 99 245 99 247C99 249 99 249 108 249L118 249L114 247ZM179 246C179 244 179 244 172 244C168 244 164 246 161 247L156 249L168 249L179 249L179 246ZM60 240C57 234 51 230 50 233C50 234 60 245 62 245C62 245 61 243 60 240ZM245 233C251 226 251 226 250 224C247 221 241 227 239 237C237 241 237 242 238 241C239 240 242 236 245 233ZM103 235C103 234 106 208 105 208C105 208 103 208 101 209L98 211L98 217C99 220 99 226 100 229C100 233 101 235 102 235C102 235 103 235 103 235ZM178 212L178 190L182 174C187 155 187 153 190 153C194 151 195 153 199 169C203 190 204 190 220 207L235 221L238 218L241 215L230 203C213 184 215 189 211 147L211 139L193 139C177 139 175 139 175 141C174 142 172 153 170 165L165 187L167 209C168 220 169 231 169 232C169 234 170 234 174 234L179 234L178 212ZM68 215C72 210 74 207 74 207C73 206 69 204 69 204C66 207 58 224 59 224C61 225 60 225 68 215ZM102 199C109 196 113 195 118 195C130 195 139 191 139 186C139 183 137 183 132 186C120 191 112 192 95 192C60 192 33 179 20 155L17 150L16 153C13 163 17 169 27 173C35 175 38 178 42 185C46 192 46 192 60 193C69 194 71 194 78 197C90 203 89 203 102 199ZM112 181C120 179 130 176 133 174C134 173 134 172 130 167C130 167 129 168 127 170C123 173 120 174 114 173C111 173 109 173 108 174C105 176 96 177 92 175C90 173 88 173 87 174C83 176 76 175 72 172C69 171 67 170 64 170C52 170 48 163 55 153C58 148 64 135 65 131C66 129 66 129 61 132C52 137 44 139 34 139C28 139 25 140 25 140C25 142 33 156 36 160C45 170 65 180 82 182C89 183 103 183 112 181ZM106 163C108 162 110 162 114 163C119 163 119 163 121 161C123 159 125 158 126 158C127 158 127 157 127 157C125 153 115 139 109 132L103 124L92 124C86 124 80 124 80 123C79 123 78 124 77 129C74 138 70 147 67 153C62 160 62 160 68 160C72 160 73 161 76 163C80 166 80 166 84 164C88 163 91 163 96 165C99 167 101 167 106 163ZM45 128C52 125 61 120 66 117C68 115 68 114 67 109C66 104 65 103 64 104C63 105 62 106 61 106C61 106 56 109 51 113C46 117 40 123 37 125C34 127 31 129 31 130C31 131 40 130 45 128ZM32 115C45 105 50 100 48 99C47 98 45 100 37 107C32 112 25 119 22 121C19 124 17 126 17 127C17 129 17 129 20 126C21 124 27 119 32 115ZM202 128C197 128 189 128 184 128C179 128 183 129 193 129C203 129 207 128 202 128ZM232 112C237 107 238 104 235 100C233 95 222 80 218 76L214 73L209 77L203 82L205 86C206 90 206 99 204 102C202 105 198 104 195 101C191 97 191 97 187 101C184 102 183 103 180 103C177 103 176 102 176 97C175 92 175 90 176 86L178 81L174 76C171 72 169 71 161 69C150 65 149 64 144 54C140 45 139 44 137 46C135 46 136 48 140 57C146 69 148 71 161 77C167 79 172 82 173 82C173 83 173 91 174 101L174 118L192 118L210 118L211 103L212 88L215 87C218 87 219 87 224 94C231 104 231 106 224 113C221 118 220 119 220 122L220 126L224 121C227 119 230 114 232 112ZM98 114C101 113 103 107 105 93L105 89L92 89C77 90 77 90 75 82C72 74 72 74 67 75C64 76 61 78 57 82L52 87L56 91L60 95L63 92C69 86 72 88 76 102C77 108 78 112 78 113C80 115 95 115 98 114ZM163 107C163 107 157 105 150 104C136 102 132 100 130 98C128 96 126 97 127 100C128 103 134 105 148 107C155 107 162 108 163 108C164 108 164 108 163 107ZM120 90L124 86L120 82C117 79 111 74 109 74C108 74 108 76 108 79C108 84 108 84 110 84C113 84 115 87 115 90C115 94 116 94 120 90ZM96 79C99 79 99 75 95 73C94 72 92 70 91 69C88 66 86 66 84 70C82 72 82 72 84 76C85 80 88 81 96 79ZM192 65C190 65 190 66 190 68C191 69 191 69 192 67C194 66 194 65 192 65ZM73 64C75 64 76 62 74 62C74 62 73 63 71 63C69 65 71 65 73 64ZM63 56C67 54 68 52 68 44L68 40L74 38C78 36 81 34 83 32C86 28 89 28 94 31L97 33L96 31C92 23 80 23 74 32C72 33 70 35 68 35C64 36 62 39 60 48C60 53 59 57 58 58C57 60 59 59 63 56ZM95 54C99 48 99 44 93 42C90 41 89 41 86 43C84 45 81 46 80 46C78 47 77 48 80 52C84 58 90 59 95 54ZM196 54C199 52 204 45 203 44C202 44 198 43 193 42C188 41 184 40 183 39C180 39 180 46 182 50C186 56 191 57 196 54ZM133 33C131 31 129 32 130 35C131 36 132 37 133 36C135 36 135 36 133 33ZM216 34C208 33 207 32 206 27C205 19 205 19 199 17C191 15 190 15 186 21C183 25 181 27 176 26C174 25 175 26 178 27C183 30 196 33 205 34C212 35 219 35 216 34Z"/></svg>
         Danzas Folclóricas</button></li>
+      <li><button type="button" class="tile" data-c="diseno" data-carrera="Tecnicatura Superior en Diseño Gráfico" aria-pressed="false">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#14143A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4l11 20-11 9-11-9z"/><path d="M24 13v8"/><circle cx="24" cy="25" r="2.2" fill="#14143A"/><path d="M24 33v5"/><rect x="19" y="38" width="10" height="6" fill="#14143A"/></svg>
+        Diseño Gráfico</button></li>
+      <li><button type="button" class="tile" data-c="locucion" data-carrera="Locutor Integral de Radio y Televisión" aria-pressed="false">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#14143A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="17" y="4" width="14" height="24" rx="7"/><path d="M17 13h14"/><path d="M17 19h14"/><path d="M10 23a14 14 0 0 0 28 0"/><path d="M24 37v6"/><path d="M16 43h16"/></svg>
+        Locutor Integral de Radio y TV</button></li>
     </ul>
 
     <form id="form" class="panel" novalidate>
@@ -184,6 +194,8 @@ input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--warn)}
           <option>Profesorado de Artes Visuales</option>
           <option>Profesorado de Teatro</option>
           <option>Profesorado de Danzas con orientación en Danzas Folclóricas</option>
+          <option>Tecnicatura Superior en Diseño Gráfico</option>
+          <option>Locutor Integral de Radio y Televisión</option>
         </select>
         <p class="err" id="e-carrera"></p>
       </div>
